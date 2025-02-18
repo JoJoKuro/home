@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mydeployment
+  name: mydeployment
+  namespace: jonathan
+spec:
+  ports:
+  - port: 1234
+    name: http
+    protocol: TCP
+    targetPort: 9898
+  selector:
+    app: mydeployment
+  type: LoadBalancer

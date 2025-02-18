@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mydeployment
+  name: mydeployment
+  namespace: jonathan
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mydeployment
+  template:
+    metadata:
+      labels:
+        app: mydeployment
+    spec:
+      containers:
+      - image: stefanprodan/podinfo:6.7.1
+        name: podinfo
+        ports:
+        - containerPort: 9898
+          protocol: TCP
